@@ -1,0 +1,89 @@
+<Solution>
+  <PropertyGroup Name="redPlum" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="Resources">
+          <Folder Name="Global">
+            <Image Name="backGround.png" />
+            <Image Name="circleGreen.png" />
+            <Image Name="circleOrange.png" />
+            <Image Name="CrossBackGround.png" />
+            <Image Name="crossBackGroundSmall.png" />
+            <Image Name="CrossBackGroundSuperSmall.png" />
+            <Image Name="mask.png" />
+            <Image Name="metalLine2.png" />
+            <Image Name="point.png" />
+            <Image Name="transparent.png" />
+            <Image Name="transparentButton.png" />
+            <Image Name="transparentButton4.png" />
+            <Image Name="transparentButton4Press.png" />
+            <Image Name="transparentButton6.png" />
+            <Image Name="transparentButton6Press.png" />
+            <Image Name="transparentButton9.png" />
+            <Image Name="transparentButton9Press.png" />
+            <Image Name="transparentButtonPress.png" />
+          </Folder>
+          <Folder Name="HeaderBar">
+            <Image Name="back.png" />
+            <Image Name="headerBarBlack.png" />
+            <Image Name="headerBarBlackSmall.png" />
+            <Image Name="headerBarTransparent.png" />
+            <Image Name="menu.png" />
+            <Image Name="menuItemGrey.png" />
+            <Image Name="modify.png" />
+            <Image Name="right.png" />
+          </Folder>
+          <Folder Name="Item">
+            <Image Name="69.png" />
+          </Folder>
+          <Folder Name="ModifyTime">
+            <Image Name="margin.png" />
+          </Folder>
+          <Folder Name="PlayerCheck">
+            <Image Name="add.png" />
+            <Image Name="defaultHeadPortrait.png" />
+            <Image Name="defaultHeadPortrait_small.png" />
+            <Image Name="defaultHeadPortraitTransparent.png" />
+            <Image Name="editBoxBackGround.png" />
+            <Image Name="editBoxTransparent.png" />
+            <Image Name="idCard.png" />
+            <Image Name="idCardBackGround.png" />
+            <Image Name="number.png" />
+          </Folder>
+          <Folder Name="popUpBox">
+            <Image Name="closeBtn.png" />
+          </Folder>
+          <Folder Name="Slider">
+            <Image Name="maskBlack.png" />
+            <Image Name="sliderBlue.png" />
+            <Image Name="sliderGray.png" />
+            <Image Name="sliderGreen.png" />
+            <Image Name="sliderOrange.png" />
+            <Image Name="sliderProgress.png" />
+            <Image Name="sliderThumb.png" />
+            <Image Name="sliderTrack.png" />
+            <Image Name="sliderWhite.png" />
+          </Folder>
+        </Folder>
+        <Project Name="bottomBar_Selection.csd" Type="Layer" />
+        <Project Name="crossHeaderBar.csd" Type="Layer" />
+        <Project Name="crossHeaderBar_m.csd" Type="Layer" />
+        <Project Name="crossHeaderBar_s.csd" Type="Layer" />
+        <Project Name="crossHeaderBar_ss.csd" Type="Layer" />
+        <Project Name="edit_Layer.csd" Type="Layer" />
+        <Project Name="HeaderBar.csd" Type="Layer" />
+        <Image Name="HelloWorld.png" />
+        <Project Name="IndividualCenter.csd" Type="Layer" />
+        <Project Name="MainScene.csd" Type="Scene" />
+        <Project Name="ModifyTime.csd" Type="Layer" />
+        <Project Name="PopItemDetails.csd" Type="Layer" />
+        <Project Name="popUpBox.csd" Type="Layer" />
+        <Project Name="popUpBox_cross.csd" Type="Layer" />
+        <Project Name="popUpBox_option.csd" Type="Layer" />
+        <Project Name="popUpBox_slider.csd" Type="Layer" />
+        <Project Name="ProspectMenu.csd" Type="Layer" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>

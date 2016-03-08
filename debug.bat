@@ -1,0 +1,1 @@
+simulator\win32\redPlum.exe -workdir G:\Project\Cocos2dx\Project\redPlum

@@ -1,0 +1,510 @@
+{
+  "ID": "3fe96324-2245-48cd-aca4-af8537bb9ff7",
+  "Version": "3.10.0.0",
+  "Name": "popUpBox_cross",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 85,
+        "Children": [
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 0,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 0,
+              "G": 0,
+              "B": 0
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 960.0,
+              "Y": 540.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 86,
+            "Children": [
+              {
+                "ClipAble": false,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 57,
+                  "G": 57,
+                  "B": 57
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 960.0,
+                  "Y": 540.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5
+                },
+                "PercentWidthEnable": true,
+                "PercentHeightEnable": true,
+                "PercentWidthEnabled": true,
+                "PercentHeightEnabled": true,
+                "PreSize": {
+                  "X": 0.4,
+                  "Y": 0.4
+                },
+                "LeftMargin": 576.0,
+                "RightMargin": 576.0,
+                "TopMargin": 324.0,
+                "BottomMargin": 324.0,
+                "Tag": 516,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Resources/Global/point.png",
+                      "Plist": ""
+                    },
+                    "Scale9Width": 2,
+                    "Scale9Height": 2,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 383.9999,
+                      "Y": 114.6096
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.2653
+                    },
+                    "PercentWidthEnable": true,
+                    "PercentHeightEnable": true,
+                    "PercentWidthEnabled": true,
+                    "PercentHeightEnabled": true,
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 0.005
+                    },
+                    "LeftMargin": -0.0001,
+                    "RightMargin": 0.0001,
+                    "TopMargin": 316.3104,
+                    "BottomMargin": 113.5296,
+                    "Tag": 88,
+                    "ActionTag": -1633460509,
+                    "Size": {
+                      "X": 768.0,
+                      "Y": 2.16
+                    },
+                    "Alpha": 178,
+                    "Name": "separationLine_Bottom",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FontSize": 14,
+                    "ButtonText": "",
+                    "TextColor": {
+                      "R": 65,
+                      "G": 65,
+                      "B": 70
+                    },
+                    "NormalFileData": {
+                      "Type": "Normal",
+                      "Path": "Resources/popUpBox/closeBtn.png",
+                      "Plist": ""
+                    },
+                    "Scale9Enable": true,
+                    "Scale9OriginX": 15,
+                    "Scale9Width": 71,
+                    "Scale9Height": 102,
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "TouchEnable": true,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 767.9999,
+                      "Y": 432.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 1.0,
+                      "Y": 1.0
+                    },
+                    "PreSize": {
+                      "X": 0.1328,
+                      "Y": 0.2361
+                    },
+                    "LeftMargin": 716.9999,
+                    "RightMargin": -50.9999,
+                    "TopMargin": -51.0,
+                    "BottomMargin": 381.0,
+                    "Tag": 90,
+                    "ActionTag": -243837266,
+                    "Size": {
+                      "X": 102.0,
+                      "Y": 102.0
+                    },
+                    "Name": "close",
+                    "ctype": "ButtonObjectData"
+                  },
+                  {
+                    "IsCustomSize": true,
+                    "FontSize": 48,
+                    "LabelText": "警告",
+                    "HorizontalAlignmentType": "HT_Center",
+                    "VerticalAlignmentType": "VT_Center",
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 383.9999,
+                      "Y": 367.2
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.85
+                    },
+                    "PercentWidthEnable": true,
+                    "PercentHeightEnable": true,
+                    "PercentWidthEnabled": true,
+                    "PercentHeightEnabled": true,
+                    "PreSize": {
+                      "X": 0.6,
+                      "Y": 0.15
+                    },
+                    "LeftMargin": 153.5999,
+                    "RightMargin": 153.6001,
+                    "TopMargin": 32.4,
+                    "BottomMargin": 334.8,
+                    "Tag": 91,
+                    "ActionTag": 1741226,
+                    "Size": {
+                      "X": 460.8,
+                      "Y": 64.8
+                    },
+                    "Name": "title",
+                    "ctype": "TextObjectData"
+                  },
+                  {
+                    "IsCustomSize": true,
+                    "FontSize": 60,
+                    "LabelText": "警告内容",
+                    "HorizontalAlignmentType": "HT_Center",
+                    "VerticalAlignmentType": "VT_Center",
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 383.9999,
+                      "Y": 216.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5
+                    },
+                    "PercentWidthEnable": true,
+                    "PercentHeightEnable": true,
+                    "PercentWidthEnabled": true,
+                    "PercentHeightEnabled": true,
+                    "PreSize": {
+                      "X": 0.8,
+                      "Y": 0.3125
+                    },
+                    "LeftMargin": 76.8,
+                    "RightMargin": 76.8001,
+                    "TopMargin": 148.5,
+                    "BottomMargin": 148.5,
+                    "CallBackType": "Click",
+                    "Tag": 92,
+                    "ActionTag": -892417511,
+                    "Size": {
+                      "X": 614.3999,
+                      "Y": 135.0
+                    },
+                    "Name": "content",
+                    "ctype": "TextObjectData"
+                  },
+                  {
+                    "FontSize": 42,
+                    "ButtonText": "确认",
+                    "TextColor": {},
+                    "PressedFileData": {
+                      "Type": "Normal",
+                      "Path": "Resources/Global/transparentButton9Press.png",
+                      "Plist": ""
+                    },
+                    "NormalFileData": {
+                      "Type": "Normal",
+                      "Path": "Resources/Global/transparentButton9.png",
+                      "Plist": ""
+                    },
+                    "Scale9Enable": true,
+                    "Scale9OriginX": 15,
+                    "Scale9OriginY": 11,
+                    "Scale9Width": 406,
+                    "Scale9Height": 45,
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "TouchEnable": true,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 383.9999,
+                      "Y": 56.16
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.13
+                    },
+                    "PercentWidthEnable": true,
+                    "PercentHeightEnable": true,
+                    "PercentWidthEnabled": true,
+                    "PercentHeightEnabled": true,
+                    "PreSize": {
+                      "X": 0.5677,
+                      "Y": 0.1551
+                    },
+                    "LeftMargin": 166.0031,
+                    "RightMargin": 166.0033,
+                    "TopMargin": 342.3384,
+                    "BottomMargin": 22.6584,
+                    "Tag": 93,
+                    "ActionTag": -453705648,
+                    "Size": {
+                      "X": 435.9936,
+                      "Y": 67.0032
+                    },
+                    "Name": "confirm",
+                    "ctype": "ButtonObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Resources/Global/metalLine2.png",
+                      "Plist": ""
+                    },
+                    "Scale9Width": 1080,
+                    "Scale9Height": 5,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 383.9999,
+                      "Y": 324.1296
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.7503
+                    },
+                    "PercentWidthEnable": true,
+                    "PercentHeightEnable": true,
+                    "PercentWidthEnabled": true,
+                    "PercentHeightEnabled": true,
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 0.014
+                    },
+                    "RightMargin": 0.0001,
+                    "TopMargin": 104.8464,
+                    "BottomMargin": 321.1056,
+                    "Tag": 542,
+                    "ActionTag": -553706866,
+                    "Size": {
+                      "X": 767.9999,
+                      "Y": 6.048
+                    },
+                    "Name": "separationLine_Top",
+                    "ctype": "ImageViewObjectData"
+                  }
+                ],
+                "ActionTag": 1763055188,
+                "Size": {
+                  "X": 768.0,
+                  "Y": 432.0
+                },
+                "Name": "bg",
+                "ctype": "PanelObjectData"
+              }
+            ],
+            "ActionTag": 1514760182,
+            "Size": {
+              "X": 1920.0,
+              "Y": 1080.0
+            },
+            "Name": "mask",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1920.0,
+          "Y": 1080.0
+        },
+        "Name": "popUpBox_cross",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "Resources/Global/metalLine2.png",
+        "Resources/Global/point.png",
+        "Resources/Global/transparentButton9.png",
+        "Resources/Global/transparentButton9Press.png",
+        "Resources/popUpBox/closeBtn.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

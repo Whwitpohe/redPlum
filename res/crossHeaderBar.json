@@ -1,0 +1,343 @@
+{
+  "ID": "4ac40c37-6335-4c10-befa-c26caef80435",
+  "Version": "3.10.0.0",
+  "Name": "crossHeaderBar",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 75,
+        "Children": [
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 0,
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Resources/HeaderBar/headerBarBlack.png",
+              "Plist": ""
+            },
+            "SingleColor": {
+              "R": 85,
+              "G": 85,
+              "B": 85
+            },
+            "FirstColor": {
+              "R": 97,
+              "G": 100,
+              "B": 105
+            },
+            "EndColor": {
+              "R": 73,
+              "G": 75,
+              "B": 79
+            },
+            "ColorVector": {
+              "ScaleX": 1.0
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 356,
+            "Scale9OriginY": 43,
+            "Scale9Width": 368,
+            "Scale9Height": 47,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 960.0,
+              "Y": 85.0044
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5449
+            },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.9359
+            },
+            "TopMargin": -2.0046,
+            "BottomMargin": 12.0042,
+            "CallBackType": "Click",
+            "Tag": 81,
+            "Children": [
+              {
+                "FontSize": 42,
+                "ButtonText": "<",
+                "TextColor": {},
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Resources/Global/transparent.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 10,
+                "Scale9OriginY": 11,
+                "Scale9Width": 280,
+                "Scale9Height": 178,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 192.0,
+                  "Y": 73.0002
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.1,
+                  "Y": 0.5
+                },
+                "PercentWidthEnable": true,
+                "PercentHeightEnable": true,
+                "PercentWidthEnabled": true,
+                "PercentHeightEnabled": true,
+                "PreSize": {
+                  "X": 0.1444,
+                  "Y": 0.3894
+                },
+                "LeftMargin": 53.376,
+                "RightMargin": 1589.376,
+                "TopMargin": 44.5739,
+                "BottomMargin": 44.5739,
+                "Tag": 82,
+                "ActionTag": -12926427,
+                "Size": {
+                  "X": 277.248,
+                  "Y": 56.8526
+                },
+                "Name": "backward",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 42,
+                "ButtonText": ">",
+                "TextColor": {},
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Resources/Global/transparent.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 10,
+                "Scale9OriginY": 11,
+                "Scale9Width": 280,
+                "Scale9Height": 178,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.4866,
+                  "ScaleY": 0.529
+                },
+                "Position": {
+                  "X": 1728.0,
+                  "Y": 75.1172
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.9,
+                  "Y": 0.5145
+                },
+                "PercentWidthEnable": true,
+                "PercentHeightEnable": true,
+                "PercentWidthEnabled": true,
+                "PercentHeightEnabled": true,
+                "PreSize": {
+                  "X": 0.1444,
+                  "Y": 0.3894
+                },
+                "LeftMargin": 1593.0911,
+                "RightMargin": 49.6609,
+                "TopMargin": 44.1056,
+                "BottomMargin": 45.0422,
+                "Tag": 83,
+                "ActionTag": -1318923123,
+                "Size": {
+                  "X": 277.248,
+                  "Y": 56.8526
+                },
+                "Name": "forward",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 48,
+                "LabelText": "这里是标题",
+                "HorizontalAlignmentType": "HT_Center",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 960.0,
+                  "Y": 73.0002
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 0.125,
+                  "Y": 0.3288
+                },
+                "LeftMargin": 840.0,
+                "RightMargin": 840.0,
+                "TopMargin": 49.0002,
+                "BottomMargin": 49.0002,
+                "Tag": 84,
+                "ActionTag": -1465528123,
+                "Size": {
+                  "X": 240.0,
+                  "Y": 48.0
+                },
+                "Name": "title",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Resources/Global/point.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9Width": 2,
+                "Scale9Height": 2,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 960.0,
+                  "Y": -4.0588
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": -0.0278
+                },
+                "PercentWidthEnable": true,
+                "PercentHeightEnable": true,
+                "PercentWidthEnabled": true,
+                "PercentHeightEnabled": true,
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 0.0526
+                },
+                "TopMargin": 146.2194,
+                "BottomMargin": -7.8986,
+                "Tag": 85,
+                "ActionTag": -1518652047,
+                "Size": {
+                  "X": 1920.0,
+                  "Y": 7.6796
+                },
+                "Name": "pLine",
+                "ctype": "ImageViewObjectData"
+              }
+            ],
+            "ActionTag": -356673364,
+            "Size": {
+              "X": 1920.0,
+              "Y": 146.0004
+            },
+            "Name": "background",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1920.0,
+          "Y": 156.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "Resources/Global/point.png",
+        "Resources/Global/transparent.png",
+        "Resources/HeaderBar/headerBarBlack.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
