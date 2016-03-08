@@ -12,6 +12,11 @@ ExpandMenu.actionType = {
     RIGHT_DOWN: 4
 };
 
+ExpandMenu._directionType = {
+    HORIZONTAL: "HORIZONTAL",
+    VERTICAL: "VERTICAL"
+};
+
 ExpandMenu.prototype._listView = null;
 ExpandMenu.prototype._size = null;
 ExpandMenu.prototype._count = null;
@@ -20,6 +25,8 @@ ExpandMenu.prototype._animationType = null;
 ExpandMenu.prototype._itemCount = 0;
 ExpandMenu.prototype._listener = null;
 ExpandMenu.prototype._disappearCallBack = null;
+ExpandMenu.prototype._direction = null;
+ExpandMenu.prototype._autoDisappear = true;
 
 /**
  * 创建一个拓展菜单
@@ -27,8 +34,9 @@ ExpandMenu.prototype._disappearCallBack = null;
  * @param {ExpandMenu.actionType.} actionType 出场的动画
  * @param {number} count 设置多少个item
  * @param {cc.Size} size 设置框框占用多大位置
+ * @param {ExpandMenu._directionType} direction 方向
  * */
-ExpandMenu.getNewInstance = function(position, actionType, count, size)
+ExpandMenu.getNewInstance = function(position, actionType, count, size, direction)
 {
     if (arguments.length < 2)
     {
@@ -41,6 +49,7 @@ ExpandMenu.getNewInstance = function(position, actionType, count, size)
     expandMenu._count = count || 4;
     expandMenu._position = position;
     expandMenu._animationType = actionType;
+    expandMenu._direction = direction || ExpandMenu._directionType.VERTICAL;
     expandMenu.initLayer();
     expandMenu.setAction();
 
@@ -50,7 +59,8 @@ ExpandMenu.getNewInstance = function(position, actionType, count, size)
 ExpandMenu.prototype.initLayer = function()
 {
     this._listView = new ccui.ListView();
-    this._listView.setDirection(ccui.ScrollView.DIR_VERTICAL);    // 无方向滑动,就是两个方向
+    this._listView.setDirection(this._direction == ExpandMenu._directionType.VERTICAL ?
+        ccui.ScrollView.DIR_VERTICAL : ccui.ScrollView.DIR_HORIZONTAL);    // 无方向滑动,就是两个方向
     this._listView.setScrollBarEnabled(false);    // 设置滑动状态栏是否显示
     this._listView.setTouchEnabled(true);       // 设置触摸是否启用
     this._listView.setBounceEnabled(true);   // 设置反弹是否启用 滑动启用
@@ -59,6 +69,8 @@ ExpandMenu.prototype.initLayer = function()
     this._listView.setContentSize(this._size);
     this._listView.setPosition(this._position);
     this._listView.setScale(0.1);
+    this._listView.setGravity(this._direction == ExpandMenu._directionType.VERTICAL ?
+        ccui.ListView.GRAVITY_CENTER_VERTICAL: ccui.ListView.GRAVITY_CENTER_HORIZONTAL);
 
     this._listener = cc.EventListener.create({
         event: cc.EventListener.TOUCH_ONE_BY_ONE,
@@ -74,7 +86,7 @@ ExpandMenu.prototype.onTouchBegan = function(touch, event)
     var target = this._listView;
     var pos = target.getParent().convertTouchToNodeSpace(touch);   // 世界坐标转换 (子节点相对于父节点的位置)
 
-    if (!cc.rectContainsPoint(target.getBoundingBox(), pos))
+    if (!cc.rectContainsPoint(target.getBoundingBox(), pos) && this._autoDisappear)
     {
         return true;
     }
@@ -87,7 +99,7 @@ ExpandMenu.prototype.onTouchEnded = function(touch, event)
     var target = this._listView;
     var pos = target.getParent().convertTouchToNodeSpace(touch);   // 世界坐标转换 (子节点相对于父节点的位置)
 
-    if (!cc.rectContainsPoint(target.getBoundingBox(), pos))
+    if (!cc.rectContainsPoint(target.getBoundingBox(), pos) && this._autoDisappear)
     {
         this.disappear();
         return true;
@@ -102,22 +114,32 @@ ExpandMenu.prototype.onTouchEnded = function(touch, event)
  * @param {boolean} isEnable 是否启用
  * @param {function} callBack   回调
  * @param {string} fileName 文件名
+ * @param {boolean} noDisappear 文件名
  * */
-ExpandMenu.prototype.pushBackItem = function(text, isEnable, callBack, fileName)
+ExpandMenu.prototype.pushBackItem = function(text, isEnable, callBack, fileName, noDisappear)
 {
     this._itemCount++;
     var lblLayer = new ccui.Layout();
-    lblLayer.setContentSize(cc.size(this._size.width, this._size.height / this._count));
+
+    var itemSize = cc.size(this._size.width / (this._direction == ExpandMenu._directionType.VERTICAL ? 1 : this._count),
+    this._size.height / (this._direction == ExpandMenu._directionType.VERTICAL ? this._count : 1)
+    );
+
+    lblLayer.setContentSize(itemSize);
 
     var buttonSp = new AdvSprite(fileName || res.menuItemGrey);
-    buttonSp.setTextureRect(cc.rect(0, 0, this._size.width, this._size.height / this._count));
+    buttonSp.setTextureRect(cc.rect(0, 0, itemSize.width, itemSize.height));
     buttonSp.setPosition(lblLayer.getContentSize().width * 0.5, lblLayer.getContentSize().height * 0.5);
     buttonSp.setMaxOffset(10);
     buttonSp.setEnable(isEnable);
+    buttonSp.setTag(100);
     var self = this;
     buttonSp.setCallBack(function()
     {
-        self.disappear();
+        if (!noDisappear)
+        {
+            self.disappear();
+        }
         callBack();
     });
     lblLayer.addChild(buttonSp);
@@ -126,15 +148,16 @@ ExpandMenu.prototype.pushBackItem = function(text, isEnable, callBack, fileName)
     label.setFontSize(24);
     label.setColor(cc.color(250, 250, 250));
     label.setPosition(buttonSp.getContentSize().width * 0.5, buttonSp.getContentSize().height * 0.5);
+    label.setTag(100);
     buttonSp.addChild(label);
 
     var line = new ccui.Scale9Sprite(res.Point);
-    line.setPreferredSize(cc.size(this._size.width, 2.5));
+    line.setPreferredSize(cc.size(itemSize.width, 2.5));
     line.setPosition(lblLayer.getContentSize().width * 0.5, 0);
     lblLayer.addChild(line);
 
     this._listView.pushBackCustomItem(lblLayer);
-    this._listView.setGravity(ccui.ListView.GRAVITY_CENTER_VERTICAL);
+    return lblLayer;
 };
 
 /**
@@ -193,7 +216,7 @@ ExpandMenu.prototype.setDisappearCallBack = function(callBack)
 ExpandMenu.prototype.show = function(pSender)
 {
     pSender.addChild(this._listView);
-    var scaleToA = cc.scaleTo(0.2, 2);
+    var scaleToA = cc.scaleTo(0.2, 1);
     var easeIn = cc.EaseIn(scaleToA, 0.2);
 
     var seqAc = new cc.Sequence(easeIn, new cc.CallFunc(function(self)

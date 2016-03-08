@@ -30,7 +30,7 @@ BiologyData.prototype._image = null;    // 静态图像
 
 //
 BiologyData.prototype._sprite = null;    // 携带精灵
-BiologyData.prototype._bagItems = null;
+BiologyData.prototype._bagItems = null; // 背包呀啊
 
 
 BiologyData.prototype.getIndex = function()

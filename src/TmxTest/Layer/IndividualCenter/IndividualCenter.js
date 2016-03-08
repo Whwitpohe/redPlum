@@ -10,6 +10,7 @@ var IndividualCenter = cc.Layer.extend({
     _buttonAttribute: null,
     _buttonBag: null,
     _buttonPet: null,
+    _tab: null,
     ctor: function()
     {
         console.log("创建 IndividualCenter");
@@ -34,6 +35,8 @@ var IndividualCenter = cc.Layer.extend({
         individualCenterControl._heroAttribute = globalApi.o2a_2(individualCenterControl._hero);
         // 删除第十九个
         individualCenterControl._heroAttribute.pop();
+
+        individualCenterControl._curBag = individualCenterControl._hero._bagItems[individualCenterControl._curBagType];
     },
     initLayer: function()
     {
@@ -54,6 +57,10 @@ var IndividualCenter = cc.Layer.extend({
         this._buttonPet = this._mainLayer.getElement("pet");
         this._buttonPet.addTouchEventListener(individualCenterControl.onClicked, this);
 
+        this._tab = this._mainLayer.getElement("tab");
+        this._tab.setVisible(false);
+
+        console.log("this._tab is" + JSON.stringify(this._tab.getContentSize()));
         var back = this._mainLayer.getElement("back");
         back.addTouchEventListener(individualCenterControl.onClicked, this);
     },
@@ -89,31 +96,53 @@ var IndividualCenter = cc.Layer.extend({
     },
     createItemView: function()
     {
-        console.log("开始啦");
-        var totalCell = individualCenterControl._hero._bagItems.length;
-        console.log("开始啦");
+        var totalCell = individualCenterControl._curBag.length;
 
         var itemArea = this._mainLayer.getElement("item");
         var rows = 5;
-        var columns = 5;
-        individualCenterControl._heroItemSize = cc.size(itemArea.getContentSize().width / columns
-            , itemArea.getContentSize().height / rows);
+        var columns = 6;
+        var itemAreaSize = cc.size(itemArea.getContentSize().width,
+        itemArea.getContentSize().height - this._tab.getContentSize().height);
 
-        this._itemView = TableViewDelegate.newInstance(cc.p(0, 0), itemArea.getContentSize(), rows, totalCell, columns,
+        individualCenterControl._heroItemSize = cc.size(itemAreaSize.width / columns
+            ,itemAreaSize.height / rows);
+
+        this._itemView = TableViewDelegate.newInstance(cc.p(0, 0), itemAreaSize, rows, totalCell, columns,
             null, cc.SCROLLVIEW_DIRECTION_VERTICAL, cc.TABLEVIEW_FILL_TOPDOWN,
             true, itemArea, individualCenterControl.createItemCell,
             individualCenterControl.updateItemCell,
             individualCenterControl.touchItemCellCallBack.bind(this));
-        console.log("开始啦");
 
         this._itemView.setVisible(false);
+
+        // 创建菜单
+        var expandMenu = ExpandMenu.getNewInstance(cc.p(this._tab.getContentSize().width * 0.5, this._tab.getContentSize().height * 0.5),
+            ExpandMenu.actionType.LEFT_DOWN, 4, this._tab.getContentSize(), ExpandMenu._directionType.HORIZONTAL);
+        expandMenu._listView.setAnchorPoint(0.5,0.5);
+        expandMenu._autoDisappear = false;
+
+        for (var key in individualCenterControl._hero._bagItems)
+        {
+            if (individualCenterControl._hero._bagItems.hasOwnProperty(key))
+            {
+                // 闭包导致只能取到最终值, 解决方法,创建一个立即执行的函数取到当前值
+                (function(index)
+                {
+                    expandMenu.pushBackItem(languageControl.getCurLanguage(index), true, function()
+                    {
+                        individualCenterControl.switchBagView(index);
+                    }, null, true);
+                })(key);
+            }
+        }
+        expandMenu.show(this._tab);
     },
     reshowView: function()
     {
         var attributeViewCellCount = individualCenterControl._heroAttribute.length;
         this._attributeView.reshow(attributeViewCellCount);
 
-        var itemCellCount = individualCenterControl._hero._bagItems.length;
+        var itemCellCount = individualCenterControl._curBag.length;
         this._itemView.reshow(itemCellCount);
     },
     refreshUi: function()
@@ -121,7 +150,7 @@ var IndividualCenter = cc.Layer.extend({
         this.initData();
         this.reshowView();
         individualCenterControl.refreshView();
-        console.log("-----------------这个是猪脚" + JSON.stringify(individualCenterControl._hero));
+        // console.log("-----------------这个是猪脚" + JSON.stringify(individualCenterControl._hero));
     }
 });
 

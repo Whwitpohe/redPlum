@@ -16,7 +16,6 @@ bagControl.initHeroBag = function(dataBase, heroIndex)
         return new BagData();
     }, "where gameId = " + heroIndex);
 
-    bagControl._heroBag = bagControl._heroBag[0];
     return bagControl._heroBag;
 };
 
@@ -25,29 +24,46 @@ bagControl.handleHeroBag = function(hero, heroBag)
 {
     var allItems = itemControl._allItem;
 
-    if (!allItems || !heroBag._bagCount || !heroBag._itemIndex || !heroBag._itemCount || heroBag._itemIndex.length != heroBag._itemCount.length)
+    if (!allItems || !heroBag || !heroBag.length)
     {
-        console.log("什么都没有你让我计算什么 bagControl.handleHeroBag");
+        console.log("什么都没有你让我计算什么 bagControl.handleHeroBag 0");
         return;
     }
 
-    var itemIndex = JSON.parse(heroBag._itemIndex);
-    var itemCount = JSON.parse(heroBag._itemCount);
-
-    var bagItems = [];
-    for (var count = 0; count < heroBag._bagCount; count++)
+    var tempHeroBagItems = {};
+    for (var bagCount = 0; bagCount < heroBag.length; bagCount++)
     {
-        var curId = itemIndex[count];
-        if (!(curId in allItems))
+        var curBag = heroBag[bagCount];
+
+        if (!curBag._bagCount || !curBag._itemIndex || !curBag._itemCount)
         {
-            console.log("如果没有就跳过 bagControl.handleHeroBag");
+            console.log("什么都没有你让我计算什么 bagControl.handleHeroBag 1");
             continue;
         }
-        var curItem = new ItemData();
-        globalApi.deepCopy(allItems[curId], curItem);
-        curItem._count = itemCount[count];
-        bagItems.push(curItem);
-    }
 
-    hero._bagItems = bagItems;
+        var itemIndex = JSON.parse(curBag._itemIndex);
+        var itemCount = JSON.parse(curBag._itemCount);
+        if (itemIndex.length != itemCount.length)
+        {
+            console.log("什么都没有你让我计算什么 bagControl.handleHeroBag 2");
+            continue;
+        }
+        var bagItems = [];
+        for (var count = 0; count < curBag._bagCount; count++)
+        {
+            var curId = itemIndex[count];
+            if (!(curId in allItems))
+            {
+                console.log("如果没有就跳过 bagControl.handleHeroBag" + curId + "||" + JSON.stringify(itemIndex));
+                continue;
+            }
+            var curItem = new ItemData();
+            globalApi.deepCopy(allItems[curId], curItem);
+            curItem._count = itemCount[count];
+            bagItems.push(curItem);
+        }
+
+        tempHeroBagItems[curBag._bagType] = bagItems;
+    }
+    hero._bagItems = tempHeroBagItems;
 };

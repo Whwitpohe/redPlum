@@ -23,7 +23,7 @@ baseListener.getCustomListener = function()
         onTouchBegan: function(touch, event)
         {
             var target = event.getCurrentTarget();
-            if(!target._isEnable)
+            if (!target._isEnable)
             {
                 return false;
             }
@@ -39,7 +39,7 @@ baseListener.getCustomListener = function()
             }
             this._oPosition = pos;
             target.setColor(cc.color(200, 200, 200));
-            target.runAction(cc.scaleTo(0.2,this._oScale * 0.95 ));
+            target.runAction(cc.scaleTo(0.1, this._oScale * 0.95));
             var pX = -(pos.y - baseListener.getCenterPosition(target).y)
                      / target.getBoundingBox().height * 2 * target._maxOffset || 10;
             var pY = (pos.x - baseListener.getCenterPosition(target).x) / target.getBoundingBox().width * 2
@@ -58,9 +58,8 @@ baseListener.getCustomListener = function()
             }
             target.setRotation3D(cc.math.vec3(-(pos.y - baseListener.getCenterPosition(target).y)
                                               / target.getBoundingBox().height * 2 * target._maxOffset || 10
-                , (pos.x - baseListener.getCenterPosition(target).x) / target.getBoundingBox().width * 2
-                  *                                                                                    target._maxOffset || 10
-                , 0));
+                , (pos.x - baseListener.getCenterPosition(target).x)
+                  / target.getBoundingBox().width * 2 * target._maxOffset || 10, 0));
             return true;
         },
 
@@ -69,17 +68,18 @@ baseListener.getCustomListener = function()
             var target = event.getCurrentTarget();
             var pos = target.getParent().convertTouchToNodeSpace(touch);
 
-            target.runAction(cc.scaleTo(0.2,this._oScale));
+            target.runAction(cc.scaleTo(0.1, this._oScale));
             target.setRotation3D(cc.math.vec3(0, 0, 0));
             target.setColor(cc.color(255, 255, 255));
-            this._oScale = 0;
+            // this._oScale = 0;
             if (!cc.rectContainsPoint(target.getBoundingBox(), pos))
             {
                 return false;
             }
 
             // 如果初次点击位置跟以后点击位置相同则执行点击事件,否则是在滑动,不执行
-            if (this._oPosition.x <= pos.x + 5 && this._oPosition.x >= pos.x - 5 && this._oPosition.y <= pos.y + 5 && this._oPosition.y >= pos.y - 5)
+            if (this._oPosition.x <= pos.x + 5 && this._oPosition.x >= pos.x - 5 && this._oPosition.y <= pos.y + 5 &&
+                this._oPosition.y >= pos.y - 5)
             {
                 if (target._callBack)
                 {
@@ -95,10 +95,10 @@ baseListener.getCustomListener = function()
             var pos = target.getParent().convertTouchToNodeSpace(touch);
             //if (cc.rectContainsPoint(target.getBoundingBox(), pos))
             {
-                target.runAction(cc.scaleTo(0.2,this._oScale));
+                target.runAction(cc.scaleTo(0.1, this._oScale));
                 target.setRotation3D(cc.math.vec3(0, 0, 0));
                 target.setColor(cc.color(255, 255, 255));
-                this._oScale = 0;
+                // this._oScale = 0;
                 return true;
             }
 
