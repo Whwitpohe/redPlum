@@ -57,11 +57,17 @@ prospectMenuControl.actionEvent = function(button)
     }
 };
 
+prospectMenuControl.refreshView = function()
+{
+    prospectMenuControl._layer._labelGold.setString(prospectMenuControl._hero._gold + "金币");
+};
+
 
 /***/
 prospectMenuControl.personalPhotoCallBack = function()
 {
     var IndividualCenter = individualCenterControl.getLayer(prospectMenuControl._hero);
+    individualCenterControl.setDisappearCallBack(prospectMenuControl.refreshView);
     cc.director.getRunningScene().addChild(IndividualCenter);
 
     // if (cc.director.isPaused())

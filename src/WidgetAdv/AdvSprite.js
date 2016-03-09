@@ -16,7 +16,7 @@ var AdvSprite = cc.Sprite.extend({
         this._super();
         if (this._listener)
         {
-            console.log("不需要创建我两次,大傻逼");
+            // console.log("不需要创建我两次,大傻逼");
             return;
         }
         // 获取自定义监听事件处理方法的承载对象

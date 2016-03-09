@@ -14,7 +14,6 @@ individualCenterControl._layer = null;
 individualCenterControl._hero = null;
 individualCenterControl._shouldDisplay = individualCenterControl._displayType.ATTRIBUTE;
 
-
 individualCenterControl._heroAttribute = [];
 individualCenterControl._heroAttributeCellSize = null;
 
@@ -22,6 +21,8 @@ individualCenterControl._heroItemSize = null;
 individualCenterControl._curBag = null;
 individualCenterControl._curBagType = null;
 individualCenterControl._lastBagType = null;
+
+individualCenterControl._disappearCallBack = null;
 
 /**
  * 获取Layer
@@ -39,6 +40,15 @@ individualCenterControl.getLayer = function(hero, shouldDisplayType)
         individualCenterControl._layer.retain();    // 防止被释放掉,我要让这货一直存在着
     }
     return individualCenterControl._layer;
+};
+
+/**
+ * 设置消失回调
+ * @param {function } callBack 回调
+ * */
+individualCenterControl.setDisappearCallBack = function(callBack)
+{
+    individualCenterControl._disappearCallBack = callBack;
 };
 
 
@@ -84,15 +94,15 @@ individualCenterControl.refreshView = function()
             individualCenterControl._layer._buttonPet.setBrightStyle(ccui.Widget.BRIGHT_STYLE_HIGH_LIGHT);
 
             individualCenterControl._layer._title.setString("我的宠物");
-
             break;
         }
         default:
             break;
     }
 
+    // 对title执行动画
     individualCenterControl._layer._title.setScale(0.5);
-    var scaleTo = cc.scaleTo(2,1,1);
+    var scaleTo = cc.scaleTo(2, 1, 1);
     var ease = new cc.EaseElasticOut(scaleTo, 0.5);
     individualCenterControl._layer._title.runAction(ease);
 
@@ -166,8 +176,18 @@ individualCenterControl.disappear = function(isClear)
     {
         individualCenterControl._layer.release();
     }
+
+    individualCenterControl._disappearCallBack();
+    individualCenterControl.clearData();
 };
 
+/**
+ * 数据清空,防止下次污染
+ * */
+individualCenterControl.clearData = function()
+{
+    individualCenterControl._disappearCallBack = null;
+};
 
 //------------------------------------------------------------------
 
@@ -285,7 +305,7 @@ individualCenterControl.updateItemCell = function(node, index)
     itemCount.setString(data["_count"]);
 };
 
-individualCenterControl.touchItemCellCallBack = function(index, pSender)
+individualCenterControl.touchItemCellCallBack = function(index, pSender, cell)
 {
     if (index >= individualCenterControl._curBag.length)
     {
@@ -294,10 +314,107 @@ individualCenterControl.touchItemCellCallBack = function(index, pSender)
     }
 
     var item = individualCenterControl._curBag[index];
-    var itemDetailsLayer = popItemDetailsControl.getLayer(item);
-    cc.director.getRunningScene().addChild(itemDetailsLayer);
 
+    var itemCount = cell.getChildByTag(102);
+
+    var count = item._count;
+    var callBackMe = function(count)
+    {
+        itemCount.setString(count);
+    };
+    var setCount = function(count)
+    {
+        callBackMe(count);
+        this.realCount = count;
+    };
+    var getCount = function()
+    {
+        return this.realCount;
+    };
+    Object.defineProperty(item, "_count", {
+        set: setCount,
+        get: getCount
+    });
+
+    item._count =  count;
+
+    var size = individualCenterControl._heroItemSize;
+    var options = individualCenterControl.createMenuWithItem(index);
+    customPopMenu.refreshOption(options);
+    var tmpOrigin = cell.getParent().convertToWorldSpace(cell.getPosition());
+    customPopMenu.show(individualCenterControl._layer, cc.p(tmpOrigin.x + size.width * 0.5, tmpOrigin.y +
+                                                                                            size.height * 0.5));
 };
+
+
+/**
+ * 为不同的item创建不同的显示菜单
+ * */
+individualCenterControl.createMenuWithItem = function(index)
+{
+    var item = individualCenterControl._curBag[index];
+    var options = [];
+
+    var useItem = {
+        "_title": "使用",
+        "_callBack": function()
+        {
+            itemControl.useItem(item, individualCenterControl._hero);
+        }
+    };
+
+    var sellItem = {
+        "_title": "出售道具",
+        "_callBack": function()
+        {
+            itemControl.sellItem(item, individualCenterControl._hero);
+        }
+    };
+
+    var seeItem = {
+        "_title": "查看介绍",
+        "_callBack": function()
+        {
+            var item = individualCenterControl._curBag[index];
+            var itemDetailsLayer = popItemDetailsControl.getLayer(item);
+            cc.director.getRunningScene().addChild(itemDetailsLayer);
+        }
+    };
+
+    var unknown = {
+        "_title": "未知的",
+        "_callBack": function()
+        {
+            console.log("我什么都不会说的,哼");
+        }
+    };
+
+    switch (item._type)
+    {
+        case "CONSUMABLES":
+        {
+            options.push(useItem);
+            options.push(sellItem);
+            options.push(seeItem);
+            break;
+        }
+
+        case "MATERIAL":
+        {
+            options.push(sellItem);
+            options.push(seeItem);
+            break;
+        }
+        default:
+        {
+            options.push(unknown);
+            break;
+        }
+    }
+
+    return options;
+};
+
 
 /**
  * 切换背包视图
@@ -306,6 +423,7 @@ individualCenterControl.switchBagView = function(curBagType)
 {
     if (individualCenterControl._curBagType == curBagType)
     {
+        // 如果上一次选择和这一次选择的相同,则不进行视图切换
         return;
     }
 
@@ -314,8 +432,9 @@ individualCenterControl.switchBagView = function(curBagType)
     individualCenterControl._curBag = individualCenterControl._hero._bagItems[individualCenterControl._curBagType];
     individualCenterControl._layer._title.setString(languageControl.getCurLanguage(individualCenterControl._curBagType));
 
+    // 对title执行动画
     individualCenterControl._layer._title.setScale(0.5);
-    var scaleTo = cc.scaleTo(2,1,1);
+    var scaleTo = cc.scaleTo(2, 1, 1);
     var ease = new cc.EaseElasticOut(scaleTo, 0.5);
     individualCenterControl._layer._title.runAction(ease);
 

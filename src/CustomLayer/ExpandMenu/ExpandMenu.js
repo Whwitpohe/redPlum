@@ -22,11 +22,11 @@ ExpandMenu.prototype._size = null;
 ExpandMenu.prototype._count = null;
 ExpandMenu.prototype._position = null;
 ExpandMenu.prototype._animationType = null;
-ExpandMenu.prototype._itemCount = 0;
 ExpandMenu.prototype._listener = null;
 ExpandMenu.prototype._disappearCallBack = null;
 ExpandMenu.prototype._direction = null;
 ExpandMenu.prototype._autoDisappear = true;
+ExpandMenu.prototype._autoRemoveListener = true;
 
 /**
  * 创建一个拓展菜单
@@ -50,6 +50,7 @@ ExpandMenu.getNewInstance = function(position, actionType, count, size, directio
     expandMenu._position = position;
     expandMenu._animationType = actionType;
     expandMenu._direction = direction || ExpandMenu._directionType.VERTICAL;
+
     expandMenu.initLayer();
     expandMenu.setAction();
 
@@ -61,7 +62,15 @@ ExpandMenu.prototype.initLayer = function()
     this._listView = new ccui.ListView();
     this._listView.setDirection(this._direction == ExpandMenu._directionType.VERTICAL ?
         ccui.ScrollView.DIR_VERTICAL : ccui.ScrollView.DIR_HORIZONTAL);    // 无方向滑动,就是两个方向
-    this._listView.setScrollBarEnabled(false);    // 设置滑动状态栏是否显示
+    {
+        this._listView.setScrollBarEnabled(true);    // 设置滑动状态栏是否显示
+        this._listView.setScrollBarWidth(5);
+        this._direction == ExpandMenu._directionType.VERTICAL
+            ? this._listView.setScrollBarPositionFromCornerForVertical({x:0,y:0})
+            : this._listView.setScrollBarPositionFromCornerForHorizontal({x:0,y:0});
+        this._listView.setScrollBarOpacity(150);
+        this._listView.setScrollBarColor(cc.color(114,114,114));
+    }
     this._listView.setTouchEnabled(true);       // 设置触摸是否启用
     this._listView.setBounceEnabled(true);   // 设置反弹是否启用 滑动启用
     this._listView.setBackGroundImage(res.ExpandMenuDefaultBackGround);  // 背景图
@@ -107,22 +116,28 @@ ExpandMenu.prototype.onTouchEnded = function(touch, event)
     return false;
 };
 
+/**
+ * 获取列表实例
+ * */
+ExpandMenu.prototype.getListView = function()
+{
+    return this._listView;
+};
 
 /**
- * 添加自定义item
+ * 建造自定义item
  * @param {string} text 文字
  * @param {boolean} isEnable 是否启用
  * @param {function} callBack   回调
- * @param {string} fileName 文件名
- * @param {boolean} noDisappear 文件名
+ * @param {object|string} fileName 文件名
+ * @param {boolean} noDisappear 回调是否会消失
  * */
-ExpandMenu.prototype.pushBackItem = function(text, isEnable, callBack, fileName, noDisappear)
+ExpandMenu.prototype.createItem = function(text, isEnable, callBack, fileName, noDisappear)
 {
-    this._itemCount++;
     var lblLayer = new ccui.Layout();
-
+    lblLayer._noDisappear = noDisappear;
     var itemSize = cc.size(this._size.width / (this._direction == ExpandMenu._directionType.VERTICAL ? 1 : this._count),
-    this._size.height / (this._direction == ExpandMenu._directionType.VERTICAL ? this._count : 1)
+        this._size.height / (this._direction == ExpandMenu._directionType.VERTICAL ? this._count : 1)
     );
 
     lblLayer.setContentSize(itemSize);
@@ -130,7 +145,7 @@ ExpandMenu.prototype.pushBackItem = function(text, isEnable, callBack, fileName,
     var buttonSp = new AdvSprite(fileName || res.menuItemGrey);
     buttonSp.setTextureRect(cc.rect(0, 0, itemSize.width, itemSize.height));
     buttonSp.setPosition(lblLayer.getContentSize().width * 0.5, lblLayer.getContentSize().height * 0.5);
-    buttonSp.setMaxOffset(10);
+    buttonSp.setMaxOffset(15);
     buttonSp.setEnable(isEnable);
     buttonSp.setTag(100);
     var self = this;
@@ -156,15 +171,15 @@ ExpandMenu.prototype.pushBackItem = function(text, isEnable, callBack, fileName,
     line.setPosition(lblLayer.getContentSize().width * 0.5, 0);
     lblLayer.addChild(line);
 
-    this._listView.pushBackCustomItem(lblLayer);
     return lblLayer;
 };
 
 /**
  * 设置动作产生的位置和动作
  * */
-ExpandMenu.prototype.setAction = function()
+ExpandMenu.prototype.setAction = function(animationType)
 {
+    this._animationType =  animationType || this._animationType;
     var anchorX = 0.5;
     var anchorY = 0.5;
     switch (this._animationType)
@@ -210,6 +225,30 @@ ExpandMenu.prototype.setDisappearCallBack = function(callBack)
 };
 
 /**
+ * 不自动释放
+ * */
+ExpandMenu.prototype.retain = function()
+{
+  if (this._autoRemoveListener)
+  {
+      this._listView.retain();
+      this._autoRemoveListener = false;
+      console.log("我进来了");
+  }
+};
+/**
+ * 对自动释放的解除
+ * */
+ExpandMenu.prototype.release = function()
+{
+    if (!this._autoRemoveListener)
+    {
+        this._listView.release();
+        this._autoRemoveListener = true;
+    }
+};
+
+/**
  * 显示在pSender之上
  * @param {object} pSender
  * */
@@ -231,7 +270,7 @@ ExpandMenu.prototype.show = function(pSender)
  * */
 ExpandMenu.prototype.disappear = function()
 {
-    cc.eventManager.removeListener(this._listener);
+    this._autoRemoveListener ?cc.eventManager.removeListener(this._listener):null;
     var scaleToA = cc.scaleTo(0.2, 0.1);
     var easeIn = cc.EaseIn(scaleToA, 0.2);
     //var spAc = new cc.Spawn(scaleToA);    // 同步

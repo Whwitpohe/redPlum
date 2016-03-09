@@ -117,17 +117,17 @@
             "PercentHeightEnabled": true,
             "PreSize": {
               "X": 0.36,
-              "Y": 0.81
+              "Y": 0.91
             },
             "LeftMargin": 307.2,
             "RightMargin": 307.2,
-            "TopMargin": 51.3,
-            "BottomMargin": 51.3,
+            "TopMargin": 24.3,
+            "BottomMargin": 24.3,
             "Tag": 3,
             "ActionTag": -812919245,
             "Size": {
               "X": 345.6,
-              "Y": 437.4
+              "Y": 491.4
             },
             "Name": "mask",
             "ctype": "PanelObjectData"
@@ -176,12 +176,12 @@
             "PercentHeightEnabled": true,
             "PreSize": {
               "X": 0.35,
-              "Y": 0.8
+              "Y": 0.9
             },
             "LeftMargin": 312.0,
             "RightMargin": 312.0,
-            "TopMargin": 54.0,
-            "BottomMargin": 54.0,
+            "TopMargin": 27.0,
+            "BottomMargin": 27.0,
             "Tag": 4,
             "Children": [
               {
@@ -199,8 +199,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 44.8,
-                  "Y": 388.8
+                  "X": 44.7888,
+                  "Y": 437.4
                 },
                 "Scale": {
                   "ScaleX": 2.0,
@@ -216,12 +216,12 @@
                 },
                 "PreSize": {
                   "X": 0.0833,
-                  "Y": 0.0648
+                  "Y": 0.0576
                 },
-                "LeftMargin": 30.8,
-                "RightMargin": 277.2,
-                "TopMargin": 29.2,
-                "BottomMargin": 374.8,
+                "LeftMargin": 30.7888,
+                "RightMargin": 277.2112,
+                "TopMargin": 34.6,
+                "BottomMargin": 423.4,
                 "Tag": 7,
                 "ActionTag": 931384876,
                 "Size": {
@@ -253,7 +253,7 @@
                 },
                 "Position": {
                   "X": 184.8,
-                  "Y": 397.44
+                  "Y": 447.12
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -277,15 +277,73 @@
                 },
                 "LeftMargin": 84.0,
                 "RightMargin": 50.4,
-                "TopMargin": 19.44,
-                "BottomMargin": 382.32,
+                "TopMargin": 21.87,
+                "BottomMargin": 430.11,
                 "Tag": 5,
                 "ActionTag": -1974535238,
                 "Size": {
                   "X": 201.6,
-                  "Y": 30.24
+                  "Y": 34.02
                 },
                 "Name": "name",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 20,
+                "LabelText": "10086金币",
+                "HorizontalAlignmentType": "HT_Right",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "Position": {
+                  "X": 319.2,
+                  "Y": 461.7
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.95,
+                  "Y": 0.95
+                },
+                "PercentWidthEnable": true,
+                "PercentHeightEnable": true,
+                "PercentWidthEnabled": true,
+                "PercentHeightEnabled": true,
+                "PreSize": {
+                  "X": 0.4,
+                  "Y": 0.0463
+                },
+                "LeftMargin": 184.8,
+                "RightMargin": 16.8,
+                "TopMargin": 24.3,
+                "BottomMargin": 439.2,
+                "Tag": 94,
+                "ActionTag": -1833725418,
+                "Size": {
+                  "X": 134.4,
+                  "Y": 22.5
+                },
+                "Name": "gold",
                 "ctype": "TextObjectData"
               },
               {
@@ -303,7 +361,7 @@
                 },
                 "Position": {
                   "X": 168.0,
-                  "Y": 345.6
+                  "Y": 388.8
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -327,13 +385,13 @@
                 },
                 "LeftMargin": 16.8,
                 "RightMargin": 16.8,
-                "TopMargin": 85.4064,
-                "BottomMargin": 344.6064,
+                "TopMargin": 96.0822,
+                "BottomMargin": 387.6822,
                 "Tag": 10,
                 "ActionTag": -1275769064,
                 "Size": {
                   "X": 302.4,
-                  "Y": 1.9872
+                  "Y": 2.2356
                 },
                 "Name": "line1",
                 "ctype": "ImageViewObjectData"
@@ -359,8 +417,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 67.2002,
-                  "Y": 324.0
+                  "X": 67.2,
+                  "Y": 364.5
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -382,15 +440,15 @@
                   "X": 0.3,
                   "Y": 0.06
                 },
-                "LeftMargin": 16.8002,
-                "RightMargin": 218.3997,
-                "TopMargin": 95.04,
-                "BottomMargin": 311.04,
+                "LeftMargin": 16.8,
+                "RightMargin": 218.4,
+                "TopMargin": 106.92,
+                "BottomMargin": 349.92,
                 "Tag": 8,
                 "ActionTag": 726259,
                 "Size": {
                   "X": 100.8,
-                  "Y": 25.92
+                  "Y": 29.16
                 },
                 "Name": "weight",
                 "ctype": "TextObjectData"
@@ -415,8 +473,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 16.8002,
-                  "Y": 298.08
+                  "X": 16.8,
+                  "Y": 335.34
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -438,15 +496,15 @@
                   "X": 0.3,
                   "Y": 0.06
                 },
-                "LeftMargin": 16.8002,
-                "RightMargin": 218.3998,
-                "TopMargin": 120.96,
-                "BottomMargin": 285.12,
+                "LeftMargin": 16.8,
+                "RightMargin": 218.4,
+                "TopMargin": 136.08,
+                "BottomMargin": 320.76,
                 "Tag": 15,
                 "ActionTag": -967179145,
                 "Size": {
                   "X": 100.8,
-                  "Y": 25.92
+                  "Y": 29.16
                 },
                 "Name": "type",
                 "ctype": "TextObjectData"
@@ -473,8 +531,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 184.8001,
-                  "Y": 298.08
+                  "X": 184.8,
+                  "Y": 335.34
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -496,15 +554,15 @@
                   "X": 0.8,
                   "Y": 0.0556
                 },
-                "LeftMargin": 50.4001,
-                "RightMargin": 16.7999,
-                "TopMargin": 121.9104,
-                "BottomMargin": 286.0704,
+                "LeftMargin": 50.4,
+                "RightMargin": 16.8,
+                "TopMargin": 137.1492,
+                "BottomMargin": 321.8292,
                 "Tag": 12,
                 "ActionTag": 1187902302,
                 "Size": {
                   "X": 268.8,
-                  "Y": 24.0192
+                  "Y": 27.0216
                 },
                 "Name": "coolingTime",
                 "ctype": "TextObjectData"
@@ -531,8 +589,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 184.8001,
-                  "Y": 272.16
+                  "X": 184.8,
+                  "Y": 306.18
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -554,15 +612,15 @@
                   "X": 0.8,
                   "Y": 0.0556
                 },
-                "LeftMargin": 50.4001,
-                "RightMargin": 16.7999,
-                "TopMargin": 147.8304,
-                "BottomMargin": 260.1504,
+                "LeftMargin": 50.4,
+                "RightMargin": 16.8,
+                "TopMargin": 166.3092,
+                "BottomMargin": 292.6692,
                 "Tag": 13,
                 "ActionTag": 1843533621,
                 "Size": {
                   "X": 268.8,
-                  "Y": 24.0192
+                  "Y": 27.0216
                 },
                 "Name": "max",
                 "ctype": "TextObjectData"
@@ -589,7 +647,7 @@
                 },
                 "Position": {
                   "X": 171.36,
-                  "Y": 237.6
+                  "Y": 267.3
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -613,13 +671,13 @@
                 },
                 "LeftMargin": 3.36,
                 "RightMargin": -3.36,
-                "TopMargin": 182.3904,
-                "BottomMargin": 225.5904,
+                "TopMargin": 205.1892,
+                "BottomMargin": 253.7892,
                 "Tag": 16,
                 "ActionTag": 96591393,
                 "Size": {
                   "X": 336.0,
-                  "Y": 24.0192
+                  "Y": 27.0216
                 },
                 "Name": "levelRestrictions",
                 "ctype": "TextObjectData"
@@ -639,7 +697,7 @@
                 },
                 "Position": {
                   "X": 168.0,
-                  "Y": 216.0
+                  "Y": 243.0
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -663,13 +721,13 @@
                 },
                 "LeftMargin": 16.8,
                 "RightMargin": 16.8,
-                "TopMargin": 215.0064,
-                "BottomMargin": 215.0064,
+                "TopMargin": 241.8822,
+                "BottomMargin": 241.8822,
                 "Tag": 14,
                 "ActionTag": 1500330790,
                 "Size": {
                   "X": 302.4,
-                  "Y": 1.9872
+                  "Y": 2.2356
                 },
                 "Name": "line2",
                 "ctype": "ImageViewObjectData"
@@ -694,8 +752,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 75.36,
-                  "Y": 194.4
+                  "X": 75.3648,
+                  "Y": 218.7
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -722,14 +780,14 @@
                   "Y": 0.0556
                 },
                 "LeftMargin": 3.36,
-                "RightMargin": 188.64,
-                "TopMargin": 225.6,
-                "BottomMargin": 182.4,
+                "RightMargin": 188.6304,
+                "TopMargin": 253.7892,
+                "BottomMargin": 205.1892,
                 "Tag": 17,
                 "ActionTag": -532972041,
                 "Size": {
-                  "X": 144.0,
-                  "Y": 24.0
+                  "X": 144.0096,
+                  "Y": 27.0216
                 },
                 "Name": "effectTips",
                 "ctype": "TextObjectData"
@@ -755,7 +813,7 @@
                 },
                 "Position": {
                   "X": 162.96,
-                  "Y": 120.96
+                  "Y": 136.08
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -783,13 +841,13 @@
                 },
                 "LeftMargin": 3.36,
                 "RightMargin": 13.44,
-                "TopMargin": 257.04,
-                "BottomMargin": 66.96,
+                "TopMargin": 289.17,
+                "BottomMargin": 75.33,
                 "Tag": 16,
                 "ActionTag": 183549010,
                 "Size": {
                   "X": 319.2,
-                  "Y": 108.0
+                  "Y": 121.5
                 },
                 "Name": "effect",
                 "ctype": "TextObjectData"
@@ -816,7 +874,7 @@
                 },
                 "Position": {
                   "X": 171.36,
-                  "Y": 32.4
+                  "Y": 36.45
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -844,12 +902,12 @@
                 },
                 "LeftMargin": 3.36,
                 "RightMargin": -3.36,
-                "TopMargin": 367.2,
+                "TopMargin": 413.1,
                 "Tag": 15,
                 "ActionTag": 1507147449,
                 "Size": {
                   "X": 336.0,
-                  "Y": 64.8
+                  "Y": 72.9
                 },
                 "Name": "info",
                 "ctype": "TextObjectData"
@@ -869,7 +927,7 @@
                 },
                 "Position": {
                   "X": 168.0,
-                  "Y": 64.8
+                  "Y": 72.9
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -893,13 +951,13 @@
                 },
                 "LeftMargin": 16.8,
                 "RightMargin": 16.8,
-                "TopMargin": 366.2064,
-                "BottomMargin": 63.8064,
+                "TopMargin": 411.9822,
+                "BottomMargin": 71.7822,
                 "Tag": 18,
                 "ActionTag": 1055161575,
                 "Size": {
                   "X": 302.4,
-                  "Y": 1.9872
+                  "Y": 2.2356
                 },
                 "Name": "line3",
                 "ctype": "ImageViewObjectData"
@@ -908,7 +966,7 @@
             "ActionTag": 1290032462,
             "Size": {
               "X": 336.0,
-              "Y": 432.0
+              "Y": 486.0
             },
             "Name": "area",
             "ctype": "PanelObjectData"

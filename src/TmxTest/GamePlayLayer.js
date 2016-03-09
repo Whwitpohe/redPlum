@@ -57,6 +57,8 @@ var GamePlayLayer = cc.Layer.extend({
         curHeroBag = bagControl.initHeroBag(curDataBase, 2);
         bagControl.handleHeroBag(this._enemy, curHeroBag);
 
+        customPopMenu.initMenu();   // 初始化弹出按钮
+
         // var tableName = "sex";
         // var sexArray = curDataBase.getData("select * from " + tableName, tableName);
         // console.log("+++++++++" + JSON.stringify(sexArray));

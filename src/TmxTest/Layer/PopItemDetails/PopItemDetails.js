@@ -11,12 +11,14 @@ var PopItemDetails = cc.Layer.extend({
     _animationDisappear: null,
     _image: null,
     _name: null,
+    _gold: null,
     _weight: null,
     _levelRestrictions: null,
     _coolingTime: null,
     _max: null,
     _type: null,
     _effect: null,
+    _effectTips: null,
     _info: null,
     ctor: function()
     {
@@ -44,12 +46,14 @@ var PopItemDetails = cc.Layer.extend({
     {
         this._image = this._mainLayer.getElement("image");
         this._name = this._mainLayer.getElement("name");
+        this._gold = this._mainLayer.getElement("gold");
         this._weight = this._mainLayer.getElement("weight");
         this._levelRestrictions = this._mainLayer.getElement("levelRestrictions");
         this._coolingTime = this._mainLayer.getElement("coolingTime");
         this._max = this._mainLayer.getElement("max");
         this._type = this._mainLayer.getElement("type");
         this._effect = this._mainLayer.getElement("effect");
+        this._effectTips = this._mainLayer.getElement("effectTips");
         this._info = this._mainLayer.getElement("info");
     },
     initLayer: function()
@@ -57,12 +61,14 @@ var PopItemDetails = cc.Layer.extend({
         var item = popItemDetailsControl._item;
         this._image.setTexture(item._image);
         this._name.setString(languageControl.getCurLanguage(item["_key"]));
+        this._gold.setString(item._gold + "金币");
         this._weight.setString(item._weight + "Kg");
         this._type.setString(languageControl.getCurLanguage(item._type));
         this._levelRestrictions.setString(item.getLevelRestrictions());
         this._info.setString(item.getInfo());
         this._effect.setString(item.getEffectText());
-        this._coolingTime.setString("冷却时间:" + item._coolingTime + "秒");
+        this._effectTips.setString(item._type == "MATERIAL" ? "『说明』" : "『使用效果』");
+        this._coolingTime.setString((Number(item._coolingTime)) ? "冷却时间:" + item._coolingTime + "秒": "");
         this._max.setString("携带上限:" + item._max + "个");
     },
     initAnimation: function()

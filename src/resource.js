@@ -38,7 +38,7 @@ var res = {
 
 
     // Global
-    Point: "res/Resources/point.png",
+    Point: "res/Resources/Global/point.png",
 
     ExpandMenuDefaultBackGround: "res/Resources/Global/black.png",
 

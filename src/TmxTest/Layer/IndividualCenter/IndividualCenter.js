@@ -102,10 +102,10 @@ var IndividualCenter = cc.Layer.extend({
         var rows = 5;
         var columns = 6;
         var itemAreaSize = cc.size(itemArea.getContentSize().width,
-        itemArea.getContentSize().height - this._tab.getContentSize().height);
+            itemArea.getContentSize().height - this._tab.getContentSize().height);
 
         individualCenterControl._heroItemSize = cc.size(itemAreaSize.width / columns
-            ,itemAreaSize.height / rows);
+            , itemAreaSize.height / rows);
 
         this._itemView = TableViewDelegate.newInstance(cc.p(0, 0), itemAreaSize, rows, totalCell, columns,
             null, cc.SCROLLVIEW_DIRECTION_VERTICAL, cc.TABLEVIEW_FILL_TOPDOWN,
@@ -114,11 +114,15 @@ var IndividualCenter = cc.Layer.extend({
             individualCenterControl.touchItemCellCallBack.bind(this));
 
         this._itemView.setVisible(false);
-
+        this.createExpandMenu();
+    },
+    createExpandMenu: function()
+    {
         // 创建菜单
-        var expandMenu = ExpandMenu.getNewInstance(cc.p(this._tab.getContentSize().width * 0.5, this._tab.getContentSize().height * 0.5),
+        var expandMenu = ExpandMenu.getNewInstance(cc.p(this._tab.getContentSize().width *
+                                                        0.5, this._tab.getContentSize().height * 0.5),
             ExpandMenu.actionType.LEFT_DOWN, 4, this._tab.getContentSize(), ExpandMenu._directionType.HORIZONTAL);
-        expandMenu._listView.setAnchorPoint(0.5,0.5);
+        expandMenu.getListView().setAnchorPoint(0.5, 0.5);
         expandMenu._autoDisappear = false;
 
         for (var key in individualCenterControl._hero._bagItems)
@@ -128,10 +132,12 @@ var IndividualCenter = cc.Layer.extend({
                 // 闭包导致只能取到最终值, 解决方法,创建一个立即执行的函数取到当前值
                 (function(index)
                 {
-                    expandMenu.pushBackItem(languageControl.getCurLanguage(index), true, function()
+                    var item = expandMenu.createItem(languageControl.getCurLanguage(index), true, function()
                     {
                         individualCenterControl.switchBagView(index);
                     }, null, true);
+
+                    expandMenu.getListView().pushBackCustomItem(item);
                 })(key);
             }
         }

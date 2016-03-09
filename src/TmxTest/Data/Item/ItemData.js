@@ -15,6 +15,7 @@ ItemData.prototype._subType = null;     // 子类型 一般消耗品. 抽奖品
 ItemData.prototype._quality = null;     // 品质 普通,紫色,黄色
 ItemData.prototype._weight = null;      // 重量 kg
 ItemData.prototype._max = null;         // 最大个数
+ItemData.prototype._gold = null;        // 价值   单位是金币
 ItemData.prototype._image = null;       // 图片
 ItemData.prototype._info = null;        // 一些信息         白字
 ItemData.prototype._canSonsume = null;  // 是否可消耗
@@ -43,10 +44,24 @@ ItemData.prototype.getInfo = function()
 
 ItemData.prototype.getLevelRestrictions = function()
 {
-    var levelRestrictionsList = JSON.parse(this._levelRestrictions);
-    var firstText = levelRestrictionsList[0] > 0 ? ("LV" + levelRestrictionsList[0] + "以上") : "";
-    var lastText = levelRestrictionsList[1] > 0 ? ((firstText ? "," : "LV") + levelRestrictionsList[1] + "以下") : "";
-    return firstText + lastText + "可以使用";
+    var retText = " ";
+    switch (this._type)
+    {
+        case "MATERIAL":
+        {
+            break;
+        }
+        default:
+        {
+            var levelRestrictionsList = JSON.parse(this._levelRestrictions);
+            var firstText = levelRestrictionsList[0] > 0 ? ("LV" + levelRestrictionsList[0] + "以上") : "";
+            var lastText = levelRestrictionsList[1] > 0 ? ((firstText ? "," : "LV") + levelRestrictionsList[1] + "以下") : "";
+            retText =  firstText + lastText + "可以使用";
+            break;
+        }
+    }
+
+    return retText;
 };
 
 
@@ -68,7 +83,7 @@ ItemData.prototype.getEffectText = function()
     var effectTextList = ["", "", "", ""];
     var text = "";
     var effectList = this.getEffectList();
-    for (var count = 0; count < effectList.length; count++)
+    for (var count = 0; effectList && count < effectList.length; count++)
     {
         var curEffect = effectList[count];
         var curEffectLanguage = languageControl.getCurLanguage(curEffect);
@@ -98,8 +113,7 @@ ItemData.prototype.getEffectText = function()
 
     var firstText = this._actionLength > 0 ? ("在" + this._actionLength + "秒内\n") : "";
     var lastText = Number(this._durationLength) ? ("效果持续" + this._durationLength + "秒\n") : "\n";
-    var effectInfo = this._effectInfo;
-    lastText += effectInfo;
+    lastText += this._effectInfo;
 
     effectTextList[0] = firstText + effectTextList[0];
     effectTextList[3] += lastText;

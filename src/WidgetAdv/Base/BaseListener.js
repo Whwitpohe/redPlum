@@ -78,8 +78,8 @@ baseListener.getCustomListener = function()
             }
 
             // 如果初次点击位置跟以后点击位置相同则执行点击事件,否则是在滑动,不执行
-            if (this._oPosition.x <= pos.x + 5 && this._oPosition.x >= pos.x - 5 && this._oPosition.y <= pos.y + 5 &&
-                this._oPosition.y >= pos.y - 5)
+            if (this._oPosition.x <= pos.x + 2.5 && this._oPosition.x >= pos.x - 2.5 && this._oPosition.y <= pos.y + 2.5 &&
+                this._oPosition.y >= pos.y - 2.5)
             {
                 if (target._callBack)
                 {

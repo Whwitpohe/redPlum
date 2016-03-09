@@ -19,6 +19,7 @@ var jsList = [
     "src/BaseTools/SDK/iosTool.js",
     "src/BaseTools/SDK/nativeTool.js",
     "src/BaseTools/TextOperation/TextOperation.js",
+    "src/CustomLayer/CustomPopMenu/customPopMenu.js",
     "src/CustomLayer/EditLayer/EditLayer.js",
     "src/CustomLayer/ExpandMenu/ExpandMenu.js",
     "src/CustomLayer/HeaderBar/headerBar.js",

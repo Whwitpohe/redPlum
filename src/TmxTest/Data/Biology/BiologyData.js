@@ -26,6 +26,7 @@ BiologyData.prototype._aspd = null;    // 攻速
 BiologyData.prototype._mspd = null;    // 移速
 BiologyData.prototype._rspd = null;    // 释放速度
 BiologyData.prototype._image = null;    // 静态图像
+BiologyData.prototype._gold = null;    // 金币啊大金币
 
 
 //
