@@ -23,6 +23,9 @@ individualCenterControl._curBagType = null;
 individualCenterControl._lastBagType = null;
 
 individualCenterControl._disappearCallBack = null;
+individualCenterControl._forceRefresh = false;
+individualCenterControl._isColse = null;
+
 
 /**
  * 获取Layer
@@ -31,6 +34,7 @@ individualCenterControl.getLayer = function(hero, shouldDisplayType)
 {
     individualCenterControl._hero = hero;
     individualCenterControl._shouldDisplay = shouldDisplayType || individualCenterControl._shouldDisplay;
+    individualCenterControl._isColse = false;    // 每次打开状态都置为true
     if (!individualCenterControl._layer)
     {
         individualCenterControl._curBagType = "CONSUMABLES";
@@ -101,11 +105,8 @@ individualCenterControl.refreshView = function()
     }
 
     // 对title执行动画
-    individualCenterControl._layer._title.setScale(0.5);
-    var scaleTo = cc.scaleTo(2, 1, 1);
-    var ease = new cc.EaseElasticOut(scaleTo, 0.5);
-    individualCenterControl._layer._title.runAction(ease);
 
+    effectAnimationControl.runAction(individualCenterControl._layer._title, effectAnimationControl._animationType.ZOOM, true);
 };
 
 
@@ -187,6 +188,7 @@ individualCenterControl.disappear = function(isClear)
 individualCenterControl.clearData = function()
 {
     individualCenterControl._disappearCallBack = null;
+    individualCenterControl._isColse = true;   // 每次关闭状态都置为false
 };
 
 //------------------------------------------------------------------
@@ -229,10 +231,12 @@ individualCenterControl.createAttributeCell = function(node, index)
  */
 individualCenterControl.updateAttributeCell = function(node, index)
 {
+    effectAnimationControl.runAction(node, effectAnimationControl._animationType.ZOOM, true);
     if (node._index == index)
     {
         return;
     }
+
     var icon = node.getChildByTag(100);
     var keyName = node.getChildByTag(101);
     var valueName = node.getChildByTag(102);
@@ -287,7 +291,10 @@ individualCenterControl.createItemCell = function(node, index)
 
 individualCenterControl.updateItemCell = function(node, index)
 {
-    if (node._index == index && individualCenterControl._lastBagType == individualCenterControl._curBagType)
+    effectAnimationControl.runAction(node, effectAnimationControl._animationType.ZOOM, true);
+
+    if (node._index == index && individualCenterControl._lastBagType == individualCenterControl._curBagType &&
+        !individualCenterControl._forceRefresh)
     {
         return;
     }
@@ -305,6 +312,9 @@ individualCenterControl.updateItemCell = function(node, index)
     itemCount.setString(data["_count"]);
 };
 
+/**
+ * 点击回调
+ * */
 individualCenterControl.touchItemCellCallBack = function(index, pSender, cell)
 {
     if (index >= individualCenterControl._curBag.length)
@@ -313,37 +323,43 @@ individualCenterControl.touchItemCellCallBack = function(index, pSender, cell)
         return;
     }
 
-    var item = individualCenterControl._curBag[index];
-
-    var itemCount = cell.getChildByTag(102);
-
-    var count = item._count;
-    var callBackMe = function(count)
-    {
-        itemCount.setString(count);
-    };
-    var setCount = function(count)
-    {
-        callBackMe(count);
-        this.realCount = count;
-    };
-    var getCount = function()
-    {
-        return this.realCount;
-    };
-    Object.defineProperty(item, "_count", {
-        set: setCount,
-        get: getCount
-    });
-
-    item._count =  count;
-
     var size = individualCenterControl._heroItemSize;
     var options = individualCenterControl.createMenuWithItem(index);
     customPopMenu.refreshOption(options);
     var tmpOrigin = cell.getParent().convertToWorldSpace(cell.getPosition());
     customPopMenu.show(individualCenterControl._layer, cc.p(tmpOrigin.x + size.width * 0.5, tmpOrigin.y +
                                                                                             size.height * 0.5));
+};
+
+/**
+ * 刷新item状态
+ * */
+individualCenterControl.refreshItem = function(value)
+{
+    if (individualCenterControl._isColse || !individualCenterControl._layer ||
+        !individualCenterControl._layer._itemView)
+    {
+        return;
+    }
+
+    var count = value[0];
+    var item = value[1];
+    var index = individualCenterControl._curBag.indexOf(item);
+    if (count == 0) // 如果是0  就删除自身,而且刷新一下子
+    {
+        individualCenterControl._curBag.splice(index, 1);
+        individualCenterControl._forceRefresh = true;
+        individualCenterControl._layer.reshowView();
+        individualCenterControl._forceRefresh = false;
+    } else
+    {
+        var node = individualCenterControl._layer._itemView.getCurrentCell(index);
+        if (node)
+        {
+            var itemCount = node.getChildByTag(102);
+            itemCount.setString(count);
+        }
+    }
 };
 
 
@@ -433,10 +449,7 @@ individualCenterControl.switchBagView = function(curBagType)
     individualCenterControl._layer._title.setString(languageControl.getCurLanguage(individualCenterControl._curBagType));
 
     // 对title执行动画
-    individualCenterControl._layer._title.setScale(0.5);
-    var scaleTo = cc.scaleTo(2, 1, 1);
-    var ease = new cc.EaseElasticOut(scaleTo, 0.5);
-    individualCenterControl._layer._title.runAction(ease);
+    effectAnimationControl.runAction(individualCenterControl._layer._title, effectAnimationControl._animationType.ZOOM, true);
 
     individualCenterControl._layer.reshowView();
 };

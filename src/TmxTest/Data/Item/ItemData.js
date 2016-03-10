@@ -4,7 +4,7 @@
 
 var ItemData = function()
 {
-
+    kvoControl.createKVO(this, "_count", this._count, "ItemDataCount");
 };
 
 ItemData.prototype._idx = null;         // id
@@ -28,7 +28,7 @@ ItemData.prototype._durationLength = null;// 持续时长   10代表 10秒后相
 ItemData.prototype._coolingTime = null; // 冷却时长
 ItemData.prototype._levelRestrictions = null; // 等级限制 数组[0,80]
 
-ItemData.prototype._count = 0;
+ItemData.prototype._count = 5;
 
 
 

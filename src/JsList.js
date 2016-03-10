@@ -60,6 +60,8 @@ var jsList = [
     "src/TmxTest/Control/AttributeImageControl/attributeImageControl.js",
     "src/TmxTest/Control/ItemControl/itemControl.js",
     "src/TmxTest/Control/BagControl/bagControl.js",
+    "src/TmxTest/Control/KVOControl/kvoControl.js",
+    "src/TmxTest/Control/EffectAnimationControl/effectAnimationControl.js",
 
 
     "src/TmxTest/Control/ProspectMenuControl/prospectMenuControl.js",

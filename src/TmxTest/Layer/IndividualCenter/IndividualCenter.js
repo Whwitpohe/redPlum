@@ -63,6 +63,7 @@ var IndividualCenter = cc.Layer.extend({
         console.log("this._tab is" + JSON.stringify(this._tab.getContentSize()));
         var back = this._mainLayer.getElement("back");
         back.addTouchEventListener(individualCenterControl.onClicked, this);
+        kvoControl.addSubscriber("ItemDataCount", individualCenterControl.refreshItem);
     },
     createView: function()
     {

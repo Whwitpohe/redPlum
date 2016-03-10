@@ -54,7 +54,7 @@ sqlControl.getDataWithTable = function(dataBase, tableName, newDataFunction, scr
         return array;
     }catch (e)
     {
-        console.log("------------------------------sqlControl.getGivenDataWithTable   出现错误");
+        console.log("------------------------------sqlControl.getDataWithTable   出现错误");
         return [];
     }
 };
