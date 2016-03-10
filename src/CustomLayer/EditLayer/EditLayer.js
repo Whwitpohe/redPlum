@@ -98,6 +98,7 @@ EditLayer.prototype.initLayer = function()
             break;
         }
     }
+    editBox.setInputFlag(cc.EDITBOX_INPUT_FLAG_SENSITIVE);
     editBox.setReturnType(cc.KEYBOARD_RETURNTYPE_DONE);
     editBox.setPosition(editBoxBackGround.getPosition());
     editBox.setString(this._text);

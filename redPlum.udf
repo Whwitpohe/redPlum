@@ -25,5 +25,15 @@
         <LastRunType Value="Windows" />
       </Value>
     </Item>
+    <Item Key="TabsParamsKey">
+      <Value ctype="TabsInfo">
+        <OpenedDocuments>
+          <FilePathData Path="IndividualCenter.csd" />
+          <FilePathData Path="PopItemDetails.csd" />
+          <FilePathData Path="ProspectMenu.csd" />
+        </OpenedDocuments>
+        <ActiveDocument Path="ProspectMenu.csd" />
+      </Value>
+    </Item>
   </Properties>
 </UserData>
